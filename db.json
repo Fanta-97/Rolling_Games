@@ -3,7 +3,11 @@
     {
       "email": "juanperez@gmail.com", 
       "password": "USERuser1*",
-      "rol": "usuario"
+      "fecha": "2022-10-19",
+      "nombre": "Juan",
+      "apellido": "Perez",
+      "rol": "usuario",
+      "estado": true
     },
     {
       "email": "admin@admin.com", 
@@ -11,7 +15,6 @@
       "rol": "admin"
     }
    ],
-  
   "games": [
       {
         "slug":"grand-theft-auto-v",

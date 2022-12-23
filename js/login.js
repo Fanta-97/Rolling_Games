@@ -26,7 +26,6 @@ const iniciarSecion = () => {
   fetch("http://localhost:3000/users")
   .then(response => response.json())
   .then( users => {
-    console.log(users)
     const newUser = users.filter(user => {
       const {email, password} = user
       return email === $email && password === $password
