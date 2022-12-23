@@ -25,50 +25,35 @@ const mostrarMensajeEstado = (titulo, mensaje) => {
   const $p = document.getElementById('modal-body-p').innerText = mensaje
 }
 
-const iniciarRegistro = () => {
-  let $fecha = document.getElementById('date').value
-  console.log($fecha)
-  let $nombre = document.getElementById('nombre').value
-  let $apellido = document.getElementById('apellido').value
-  let $email = document.getElementById('email').value
-  let $password = document.getElementById('password').value
+const iniciarRegistro = async () => {
+  let fecha = document.getElementById('date').value
+  let nombre = document.getElementById('nombre').value
+  let apellido = document.getElementById('apellido').value
+  let email = document.getElementById('email').value
+  let password = document.getElementById('password').value
 
-  if(!validarDatos($email, $password, $fecha)) 
+  if(!validarDatos(email, password, fecha))
     return mostrarMensajeEstado('ERROR DE CARGA', 'Los datos proporcionados no son válidos')
-  
-  fetch( 'http://localhost:3000/users' )
-    .then( response => {
-      // console.log(response)
-      response.json()
-    } )
-    .then( users => {
-      console.log(users)
-      // const existe = users.filter( user => {
-      //   const {email, password} = user
-      //   return email === $email && password === $password
-      // })
-      // if(existe.length)
-      //   return mostrarMensajeEstado("USUARIO EXISTENTE", `el usuario ${$email} se encuentra registrado`)
-    } )  
+  else {
+    fetch( 'http://localhost:3000/users' )
+      .then( response => response.json() )
+      .then( users => {
+        const existe = users.filter( user => {
+          const {emailU, passwordU} = user
+          return email === emailU && password === passwordU
+        })
+        if(existe.length == 1) return mostrarMensajeEstado("USUARIO EXISTENTE", `el usuario ${email} se encuentra registrado`)
+      } )  
+    
+    const nuevoUsuario = { email, password, fecha, nombre, apellido, rol: 'usuario', estado: "1", }
 
-  // fetch("http://localhost:3000/users", {
-  //   method: 'POST',
-  //   body: JSON.stringify({
-  //     email: $email,
-  //     password: $password,
-  //     fecha: $fecha,
-  //     nombre: $nombre,
-  //     apellido: $apellido,
-  //     rol: 'usuario',
-  //     estado: true,
-  // }),
-  // headers: {
-  //   'Content-type': 'application/json; charset=UTF-8',
-  // },
-  // })
-  // .then((response) => {
-  //   console.log(response)
-  //   response.json()
-  // })
-  // .then((json) => console.log(json));
+    fetch('http://localhost:3000/users', 
+    {
+      method: 'POST',
+      body: JSON.stringify(nuevoUsuario),
+      headers: { 'Content-Type': 'application/json' }
+    } )
+    .then( response => { response.json() } )
+    .then( json => console.log(json) );
+  }
 }

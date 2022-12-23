@@ -7,7 +7,7 @@
       "nombre": "Juan",
       "apellido": "Perez",
       "rol": "usuario",
-      "estado": true
+      "estado": "1 "
     },
     {
       "email": "admin@admin.com", 
