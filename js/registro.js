@@ -35,7 +35,7 @@ const iniciarRegistro = async () => {
   if(!validarDatos(email, password, fecha))
     return mostrarMensajeEstado('ERROR DE CARGA', 'Los datos proporcionados no son válidos')
   else {
-    fetch( 'http://localhost:3000/users' )
+    fetch('http://localhost:3000/users')
       .then( response => response.json() )
       .then( users => {
         const existe = users.filter( user => {
@@ -47,13 +47,24 @@ const iniciarRegistro = async () => {
     
     const nuevoUsuario = { email, password, fecha, nombre, apellido, rol: 'usuario', estado: "1", }
 
-    fetch('http://localhost:3000/users', 
-    {
-      method: 'POST',
-      body: JSON.stringify(nuevoUsuario),
-      headers: { 'Content-Type': 'application/json' }
-    } )
-    .then( response => { response.json() } )
-    .then( json => console.log(json) );
+    fetch('http://localhost:3000/users', {
+  method: 'POST',
+  body: JSON.stringify({
+    title: 'foo',
+    body: 'bar',
+    userId: 1,
+  }),
+  headers: {
+    'Content-type': 'application/json; charset=UTF-8',
+  },
+})
+  .then((response) => response.json())
+  .then((json) => console.log(json));
   }
+
+
+
+
+
+  
 }
