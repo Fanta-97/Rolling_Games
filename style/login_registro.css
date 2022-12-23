@@ -6,7 +6,7 @@
 
 body {
   background-color: var(--color-fondo-1);
-  font-family: 'Brutal', sans-serif;
+  font-family: 'Brutal', sans-serif !;
   width: 100vw;
   height: 100vh;
   overflow: hidden;

@@ -1,9 +1,16 @@
 {
-  "admin": [
-    { "id": 1, "email": "admin@admin.com", "password": "admin1234" }
-    
-  ],
-  "users": [ ],
+  "users": [
+    {
+      "email": "juanperez@gmail.com", 
+      "password": "USERuser1*",
+      "rol": "usuario"
+    },
+    {
+      "email": "admin@admin.com", 
+      "password": "USERuser12*",
+      "rol": "admin"
+    }
+   ],
   
   "games": [
       {
