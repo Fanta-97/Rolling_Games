@@ -25,7 +25,7 @@ const mostrarMensajeEstado = (titulo, mensaje) => {
   const $p = document.getElementById('modal-body-p').innerText = mensaje
 }
 
-const iniciarRegistro = async () => {
+const iniciarRegistro = () => {
   let fecha = document.getElementById('date').value
   let nombre = document.getElementById('nombre').value
   let apellido = document.getElementById('apellido').value
@@ -48,23 +48,13 @@ const iniciarRegistro = async () => {
     const nuevoUsuario = { email, password, fecha, nombre, apellido, rol: 'usuario', estado: "1", }
 
     fetch('http://localhost:3000/users', {
-  method: 'POST',
-  body: JSON.stringify({
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
+    method: 'POST',
+    body: JSON.stringify(nuevoUsuario),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+    })
   .then((response) => response.json())
   .then((json) => console.log(json));
   }
-
-
-
-
-
-  
 }
