@@ -42,11 +42,13 @@ fetch('http://localhost:3000/games')
     data.forEach((item) => {
       console.log(item.name)
       console.log(item.background_image)
+      console.log(item.genres.name)
+
       track.innerHTML +=
       `<div class="slick">
         <div>
           <a href="/">
-            <h4 ><small>${item.name}</small></h4>
+            <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
             <div>
               <img src="${item.background_image}" alt="Imagen" >
             </div>
