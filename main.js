@@ -36,4 +36,23 @@ let nextAction = (leftPosition,trackWidth,listWidth,slickWidth,track) => {
 
 fetch('http://localhost:3000/games')
   .then(response => response.json())
-  .then(data => console.log(data))
+  .then(data => {
+    const juegos = document.getElementById('track')
+    track.innerHTML = '' 
+    data.forEach((item) => {
+      console.log(item.name)
+      console.log(item.background_image)
+      track.innerHTML +=
+      `<div class="slick">
+        <div>
+          <a href="/">
+            <h4 ><small>${item.name}</small></h4>
+            <div>
+              <img src="${item.background_image}" alt="Imagen" >
+            </div>
+          </a>
+        </div>
+      </div>
+      `
+    })
+ })
