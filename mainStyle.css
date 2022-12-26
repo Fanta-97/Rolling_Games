@@ -40,7 +40,7 @@ a{
     height: 304px;
     padding: 10px 0px;
     margin: 0px auto;
-    max-width: 90vw;
+    max-width: 90%;
     overflow: hidden;
 }
 .slick-track{
