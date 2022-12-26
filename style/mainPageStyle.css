@@ -23,7 +23,8 @@ a{
     text-transform: uppercase;
     letter-spacing: 10px;
     text-align: center;
-    color: rgb(189,189,189);
+    color: black;
+    background-color: white;
 }
 
 .Carousel h3{
@@ -111,4 +112,34 @@ a{
 }
 .slick-next{
     right: 0px;
+}
+
+.textFoo {
+    color: white;
+}
+
+.imgdestac {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.juegoDestacado{
+    color: rgb(189,189,189);
+}
+
+.headerStyle{
+  z-index: -1;
+  background-color: black;
+  width: 100%;
+}
+    
+.footStyle{
+  background-color: black;
+        
+}
+
+.juegoDestacadoTotal{
+  background-color: black;
+  border-radius: 10px;
 }

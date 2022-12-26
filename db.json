@@ -91,6 +91,7 @@
     {
       "slug": "grand-theft-auto-v",
       "name": "Grand Theft Auto V",
+      "isFavorite":true,
       "playtime": 72,
       "platforms": [
         {
