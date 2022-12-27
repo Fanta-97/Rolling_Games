@@ -1,4 +1,5 @@
-
+let ID_GAME
+let game_updated = {}
 
 let tableBody = document.getElementById('TableAdminBody')
 
@@ -59,17 +60,40 @@ const crearJuego = async () => {
 }
 
 const cargarJuego = element => {
+  ID_GAME = element.id
   fetch(`http://localhost:3000/games/${element.id}`)
     .then(res => res.json())
     .then(game => {
+      let id = document.getElementById('idGame').value = game.id 
       let nombre = document.getElementById('nameGame').value = game.name 
       let categoria = document.getElementById('categoriaGame').value = game.genres[0].name
       let fecha = document.getElementById('fechaGame').value = game.released
     })
 }
 
-const actualizarJuego = id => {
-  console.log(id)
+const actualizarJuego = () => {
+  fetch(`http://localhost:3000/games/${ID_GAME}`)
+    .then(res => res.json())
+    .then(game => {
+      game.name = document.getElementById('nameGame').value
+      game.genres[0].name = document.getElementById('categoriaGame').value
+      game.released = document.getElementById('fechaGame').value
+
+      fetch(`http://localhost:3000/games/${ID_GAME}`, {
+        method: 'PUT',
+        body: JSON.stringify(game),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          console.log(json)
+          window.location.reload()
+          cargarJuegos()
+        });
+    })
+  
 }
 
 
