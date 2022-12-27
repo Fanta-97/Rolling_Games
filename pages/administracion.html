@@ -43,34 +43,39 @@
           <form class="">
             <div class="mb-3">
               <label for="name" class="form-label">Nombre</label>
-              <input type="text" class="form-control" id="name" aria-describedby="name">
+              <input type="text" class="form-control" id="name" aria-describedby="name" required>
             </div>
             
             <div class="mb-3">
               <label for="name" class="form-label">Categoría</label>
-              <input type="text" class="form-control" id="categoria" aria-describedby="categoria">
+              <input type="text" class="form-control" id="categoria" aria-describedby="categoria" required>
             </div>
 
             <div class="mb-3 form-floating">
-              <textarea class="form-control" placeholder="Leave a comment here" id="descripcion"></textarea>
+              <textarea class="form-control" placeholder="Leave a comment here" id="descripcion" required></textarea>
               <label for="descripcion">Descripción</label>
             </div>
 
             <div class="mb-3">
               <label for="imagen" class="form-label">Imagen</label>
-              <input type="file" class="form-control" id="imagen" aria-describedby="imagen">
+              <input type="file" class="form-control" id="imagen" aria-describedby="imagen" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="imagen" class="form-label">Fecha de lanzamiento</label>
+              <input type="date" class="form-control" id="fecha" aria-describedby="fecha" required>
             </div>
 
             
             <div class="mb-3 form-check">
-              <input type="checkbox" class="form-check-input" id="publicado">
+              <input type="checkbox" class="form-check-input" id="publicado" required>
               <label class="form-check-label" for="publicado">Publicado</label>
             </div>
           </form>
         </div>
         <div class="modal-footer d-flex justify-content-center">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CANCELAR</button>
-          <button id="" type="button" class="btn btn-primary">CREAR JUEGO</button>
+          <button id="" type="button" class="btn btn-primary" onclick="crearJuego()">CREAR JUEGO</button>
         </div>
       </div>
     </div>
