@@ -12,7 +12,6 @@ App.prototype.processingButton = function(event) {
   const slick = track.querySelectorAll('.slick');
 
   const slickWidth = slick[0].offsetWidth;
-    
   const trackWidth = track.offsetWidth;
   const listWidth = slickList.offsetWidth;
 
