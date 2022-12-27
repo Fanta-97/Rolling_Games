@@ -35,12 +35,9 @@ const iniciarSecion = () => {
       mensaje = `el usuario ${$email} no existe`
       return mostrarMensajeEstado(titulo, mensaje)
     }
-    /**
-     * AQUI DEBERAN IR LOS LINKS PARA LAS PAGINAS DE INDEX Y DE ADMINISTRACION
-     */
     newUser[0].rol === 'usuario' 
-      ? window.open("http://www.google.com.ar/", "_self")
-      : window.open("https://www.youtube.com/watch?v=sVO65BeJjq8&ab_channel=midulive", "_self")
+      ? window.open(`./pages/mainPage.html`,"_self")
+      : window.open("./pages/administracion.html", "_self")
   })
   mostrarMensajeEstado(`BIENVENIDO`, `Bienvenido ${$email}`)
 }
