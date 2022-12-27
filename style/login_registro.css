@@ -4,6 +4,10 @@
   
 }
 
+.container__password {
+  width: 90%;
+}
+
 body {
   background-color: var(--color-fondo-1);
   font-family: 'Brutal', sans-serif !;

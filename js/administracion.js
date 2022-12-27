@@ -15,7 +15,6 @@ const cargarJuegos = async () => {
                             <td class='text-bold'>${game.id}</td>
                             <td class='text-bold'>${game.name}</td>
                             <td class='text-bold'>${game.genres[0]?.name}</td>
-
                             <td class='text-bold'>${game.released}</td>
                             <td class='text-bold'>
                               <i id='${game.id}' class ="bi bi-trash fs-2" onclick="deleteGame(this)"></i>
