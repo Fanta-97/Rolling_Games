@@ -37,7 +37,8 @@ const iniciarSecion = () => {
     }
     newUser[0].rol === 'usuario' 
       ? window.open(`./pages/mainPage.html`,"_self")
-      : window.open("./pages/administracion.html", "_self")
+      : (mostrarMensajeEstado(`BIENVENIDO`, `Bienvenido ${$email}`),
+        window.open(`./pages/administracion.html`, "_self"))
   })
-  mostrarMensajeEstado(`BIENVENIDO`, `Bienvenido ${$email}`)
+  
 }

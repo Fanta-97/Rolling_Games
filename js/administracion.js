@@ -1,6 +1,4 @@
 let ID_GAME
-let game_updated = {}
-
 let tableBody = document.getElementById('TableAdminBody')
 
 const cargarJuegos = async () => {
@@ -25,6 +23,10 @@ const cargarJuegos = async () => {
       tableBody.appendChild(gameRow)
     });
   });
+}
+
+const cargarAvatar = () => {
+  let a = document.getElementById('avatar').innerText = "Administrador"
 }
 
 const capturarDatos = () => {
@@ -108,7 +110,4 @@ function deleteGame(element) {
 }
 
 cargarJuegos()
-
-const highlightGame = i => {
-  i.classList.toggle("destacated")
-}
+cargarAvatar()
