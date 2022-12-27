@@ -3,7 +3,7 @@ let regEx_pass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm
 let regEx_email = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g 
 
 const mostrarMensajeEstado = (titulo, mensaje) => {
-  const $h1 = document.getElementById('exampleModalLabel').innerText = titulo
+  const $h2 = document.getElementById('exampleModalLabel').innerText = titulo
   const $p = document.getElementById('modal-body-p').innerText = mensaje
 }
 
@@ -18,11 +18,17 @@ const validarEmail = ($email = undefined) => {
 const iniciarSecion = () => {
   const $email = document.getElementById("email").value
   const $password = document.getElementById("password").value
+  const btnRegistro = document.getElementById('btnRegistro')
+  const myModal = new bootstrap.Modal(document.getElementById('exampleModal'))
+  
+
   let titulo, mensaje
 
-  if(!validarEmail($email) || !validarPassword($password))
-    return mostrarMensajeEstado('ERROR DE CARGA', 'Los datos proporcionados no son válidos')  
-  
+  if(!validarEmail($email))
+    return mostrarMensajeEstado('ERROR DE CARGA', 'El email proporcionado no es valido')
+  if(!validarPassword($password))
+    return mostrarMensajeEstado('ERROR DE CARGA', 'La password proporcionada no es valida')
+  myModal.show();
   fetch("http://localhost:3000/users")
   .then(response => response.json())
   .then( users => {

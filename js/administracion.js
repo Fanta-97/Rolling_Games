@@ -26,7 +26,7 @@ const cargarJuegos = async () => {
 }
 
 const cargarAvatar = () => {
-  let a = document.getElementById('avatar').innerText = "Administrador"
+  let a = document.getElementById('avatar').innerHTML = "Administrador"
 }
 
 const capturarDatos = () => {
