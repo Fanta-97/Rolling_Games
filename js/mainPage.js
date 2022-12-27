@@ -84,6 +84,22 @@ App.prototype.processingButton5 = function(event) {
   btn.dataset.button == "button-prev" ? prevAction(leftPosition,slickWidth,track5) : nextAction(leftPosition,trackWidth,listWidth,slickWidth,track5)
 }
 
+App.prototype.processingButton8 = function(event) {
+  const btn = event.currentTarget;
+  const slickList = event.currentTarget.parentNode;
+  const track8 = event.currentTarget.parentNode.querySelector('#track8');
+  const slick = track8.querySelectorAll('.slick');
+
+  const slickWidth = slick[0].offsetWidth;
+    
+  const trackWidth = track8.offsetWidth;
+  const listWidth = slickList.offsetWidth;
+
+  track8.style.left == ""  ? leftPosition = track8.style.left = 0 : leftPosition = parseFloat(track8.style.left.slice(0, -2) * -1);
+
+  btn.dataset.button == "button-prev" ? prevAction(leftPosition,slickWidth,track8) : nextAction(leftPosition,trackWidth,listWidth,slickWidth,track8)
+}
+
 
 let prevAction = (leftPosition,slickWidth,track) => {
   if(leftPosition > 0) {
@@ -108,10 +124,10 @@ fetch('http://localhost:3000/games') // Action
       `
       <div class="slick">
         <div>
-          <a href="/">
-            <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
+          <a href="../pages/detailGame.html" id="${item.id}" target="_blank">
+            <h4 onclick="detalleJuego(this)" id="${item.id}">${item.name}<small>${item.genres[0].name}</small></h4>
             <div>
-              <img src="${item.background_image}" alt="Imagen" >
+              <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" id="${item.id}">
             </div>
           </a>
         </div>
@@ -219,13 +235,12 @@ fetch('http://localhost:3000/games') // Action
 
 
  
- fetch('http://localhost:3000/games') //RPG
+ fetch('http://localhost:3000/games') //Juegodestacado
   .then(response => response.json())
   .then(data => {
     const juegodest = document.getElementById('juegodest')
     juegodest.innerHTML = ''
     data.forEach((item) => {
-      console.log(item.destacado)
       if (item.isFavorite === true){
         juegodest.innerHTML +=
         `<div class="juegoDestacadoTotal">
@@ -245,3 +260,14 @@ fetch('http://localhost:3000/games') // Action
 
     })
  })
+
+  const detalleJuego = (Element) => {
+    fetch(`http://localhost:3000/games/${Element.id}`) //tomar id
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      // console.log(Element.id)
+      localStorage.setItem('juegoID' ,Element.id);
+})
+}
+

@@ -21,69 +21,6 @@ App.prototype.processingButton = function(event) {
   btn.dataset.button == "button-prev" ? prevAction(leftPosition,slickWidth,track) : nextAction(leftPosition,trackWidth,listWidth,slickWidth,track)
 }
 
-App.prototype.processingButton2 = function(event) {
-  const btn = event.currentTarget;
-  const slickList = event.currentTarget.parentNode;
-  const track2 = event.currentTarget.parentNode.querySelector('#track2');
-  const slick = track2.querySelectorAll('.slick');
-
-  const slickWidth = slick[0].offsetWidth;
-    
-  const trackWidth = track2.offsetWidth;
-  const listWidth = slickList.offsetWidth;
-
-  track2.style.left == ""  ? leftPosition = track2.style.left = 0 : leftPosition = parseFloat(track2.style.left.slice(0, -2) * -1);
-
-  btn.dataset.button == "button-prev" ? prevAction(leftPosition,slickWidth,track2) : nextAction(leftPosition,trackWidth,listWidth,slickWidth,track2)
-}
-
-App.prototype.processingButton3 = function(event) {
-  const btn = event.currentTarget;
-  const slickList = event.currentTarget.parentNode;
-  const track3 = event.currentTarget.parentNode.querySelector('#track3');
-  const slick = track3.querySelectorAll('.slick');
-
-  const slickWidth = slick[0].offsetWidth;
-    
-  const trackWidth = track3.offsetWidth;
-  const listWidth = slickList.offsetWidth;
-
-  track3.style.left == ""  ? leftPosition = track3.style.left = 0 : leftPosition = parseFloat(track3.style.left.slice(0, -2) * -1);
-
-  btn.dataset.button == "button-prev" ? prevAction(leftPosition,slickWidth,track3) : nextAction(leftPosition,trackWidth,listWidth,slickWidth,track3)
-}
-
-App.prototype.processingButton4 = function(event) {
-  const btn = event.currentTarget;
-  const slickList = event.currentTarget.parentNode;
-  const track4 = event.currentTarget.parentNode.querySelector('#track4');
-  const slick = track4.querySelectorAll('.slick');
-
-  const slickWidth = slick[0].offsetWidth;
-    
-  const trackWidth = track4.offsetWidth;
-  const listWidth = slickList.offsetWidth;
-
-  track4.style.left == ""  ? leftPosition = track4.style.left = 0 : leftPosition = parseFloat(track4.style.left.slice(0, -2) * -1);
-
-  btn.dataset.button == "button-prev" ? prevAction(leftPosition,slickWidth,track4) : nextAction(leftPosition,trackWidth,listWidth,slickWidth,track4)
-}
-
-App.prototype.processingButton5 = function(event) {
-  const btn = event.currentTarget;
-  const slickList = event.currentTarget.parentNode;
-  const track5 = event.currentTarget.parentNode.querySelector('#track5');
-  const slick = track5.querySelectorAll('.slick');
-
-  const slickWidth = slick[0].offsetWidth;
-    
-  const trackWidth = track5.offsetWidth;
-  const listWidth = slickList.offsetWidth;
-
-  track5.style.left == ""  ? leftPosition = track5.style.left = 0 : leftPosition = parseFloat(track5.style.left.slice(0, -2) * -1);
-
-  btn.dataset.button == "button-prev" ? prevAction(leftPosition,slickWidth,track5) : nextAction(leftPosition,trackWidth,listWidth,slickWidth,track5)
-}
 
 
 let prevAction = (leftPosition,slickWidth,track) => {
@@ -98,53 +35,49 @@ let nextAction = (leftPosition,trackWidth,listWidth,slickWidth,track) => {
   }
 }
 
-fetch('http://localhost:3000/games') // Action
-  .then(response => response.json())
-  .then(data => {
-    const track = document.getElementById('track')
-    track.innerHTML = '' 
-    data.forEach((item) => {
-      if (item.genres[0].name==='Action'){
-      track.innerHTML +=
-      `
-      <div class="slick">
-        <div>
-          <a href="/">
-            <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
-            <div>
-              <img src="${item.background_image}" alt="Imagen" >
-            </div>
-          </a>
-        </div>
-      </div>
-      `
-      }
-    })
- })
+let juegoID=localStorage.getItem('juegoID')
+console.log(juegoID)
  
- fetch('http://localhost:3000/games') //Dest
-  .then(response => response.json())
-  .then(data => {
-    const juegodest = document.getElementById('juegodest')
-    juegodest.innerHTML = ''
-    data.forEach((item) => {
-      console.log(item.destacado)
-      if (item.isFavorite === true){
-        juegodest.innerHTML +=
+fetch(`http://localhost:3000/games/${juegoID}`) //tomar id
+    .then(response => response.json())
+    .then(data => {  
+    const detallejuegop = document.getElementById('detallejuegop')
+    detallejuegop.innerHTML = 
         `<div class="juegoDestacadoTotal">
-          <div class="d-flex flex-row">
+          <div class="d-flex flex-column">
+            <div class="col-lg-12 juegoDestacado d-flex flex-column align-items-center text-center w-100 justify-content-center">
+              <h4 class="h-30 py-lg-4 p-4">${data.name}</h4> 
+            </div>
             <a href="/" class="col-lg-12">
-            <img src="${item.background_image}" alt="Imagen" class="imgdestac">
+            <img src="${data.background_image}" alt="Imagen" class="imgdestac">
             </a>
             <div class="col-lg-12 juegoDestacado d-flex flex-column align-items-center text-center w-100 justify-content-center">
-              <h4 class="h-30 py-lg-4 p-4">${item.name}</h4> 
-              <h4 class="h-20 py-lg-2 p-2"><small>Genero:${item.genres[0].name}</small></h4>
+              <h4 class="h-20 py-lg-2 p-2"><small>Genero:${data.genres[0].name}</small></h4>
               <p class="h-50 py-lg-4 p-4">Increible juego que no te deja levantarte de la silla por más de 5 minutos.A disfrutarlo con un gran descuento!​</p>
             </div>
           </div>
         </div>
         `
       }
+)
 
-    })
- })
+fetch(`http://localhost:3000/games/${juegoID}`) //Galeria
+    .then(response => response.json())
+    .then(data => {
+    console.log(data.short_screenshots)
+    const track = document.getElementById('track')
+    track.innerHTML = '' 
+    for (let i=0;i<=((data.short_screenshots.length)-1);i++){
+      console.log(i)
+      console.log(data.short_screenshots[i].image)
+      track.innerHTML +=
+      `
+      <div class="slick">
+        <div>
+              <img src="${data.short_screenshots[i].image}" alt="Imagen">
+        </div>
+      </div>
+      `
+      }
+     }
+    )
