@@ -84,21 +84,6 @@ App.prototype.processingButton5 = function(event) {
   btn.dataset.button == "button-prev" ? prevAction(leftPosition,slickWidth,track5) : nextAction(leftPosition,trackWidth,listWidth,slickWidth,track5)
 }
 
-App.prototype.processingButton8 = function(event) {
-  const btn = event.currentTarget;
-  const slickList = event.currentTarget.parentNode;
-  const track8 = event.currentTarget.parentNode.querySelector('#track8');
-  const slick = track8.querySelectorAll('.slick');
-
-  const slickWidth = slick[0].offsetWidth;
-    
-  const trackWidth = track8.offsetWidth;
-  const listWidth = slickList.offsetWidth;
-
-  track8.style.left == ""  ? leftPosition = track8.style.left = 0 : leftPosition = parseFloat(track8.style.left.slice(0, -2) * -1);
-
-  btn.dataset.button == "button-prev" ? prevAction(leftPosition,slickWidth,track8) : nextAction(leftPosition,trackWidth,listWidth,slickWidth,track8)
-}
 
 
 let prevAction = (leftPosition,slickWidth,track) => {
@@ -145,17 +130,18 @@ fetch('http://localhost:3000/games') // Action
     data.forEach((item) => {
       if (item.genres[0].name==='Shooter'){
         track2.innerHTML +=
-        `<div class="slick">
-        <div>
-        <a href="/">
-        <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
-        <div>
-        <img src="${item.background_image}" alt="Imagen" >
-        </div>
-        </a>
-        </div>
-        </div>
         `
+        <div class="slick">
+          <div>
+            <a href="../pages/detailGame.html" id="${item.id}" target="_blank">
+              <h4 onclick="detalleJuego(this)" id="${item.id}">${item.name}<small>${item.genres[0].name}</small></h4>
+              <div>
+                <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" id="${item.id}">
+              </div>
+            </a>
+          </div>
+        </div>
+      `
       }
 
     })
@@ -169,17 +155,18 @@ fetch('http://localhost:3000/games') // Action
     data.forEach((item) => {
       if (item.genres[0].name==='Adventure'){
         track3.innerHTML +=
-        `<div class="slick">
-        <div>
-        <a href="/">
-        <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
-        <div>
-        <img src="${item.background_image}" alt="Imagen" >
-        </div>
-        </a>
-        </div>
-        </div>
         `
+        <div class="slick">
+          <div>
+            <a href="../pages/detailGame.html" id="${item.id}" target="_blank">
+              <h4 onclick="detalleJuego(this)" id="${item.id}">${item.name}<small>${item.genres[0].name}</small></h4>
+              <div>
+                <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" id="${item.id}">
+              </div>
+            </a>
+          </div>
+        </div>
+      `
       }
 
     })
@@ -193,15 +180,16 @@ fetch('http://localhost:3000/games') // Action
     data.forEach((item) => {
       if (item.genres[0].name==='Sports'){
         track4.innerHTML +=
-        `<div class="slick">
-        <div>
-        <a href="/">
-        <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
-        <div>
-        <img src="${item.background_image}" alt="Imagen" >
-        </div>
-        </a>
-        </div>
+        `
+        <div class="slick">
+          <div>
+            <a href="../pages/detailGame.html" id="${item.id}" target="_blank">
+              <h4 onclick="detalleJuego(this)" id="${item.id}">${item.name}<small>${item.genres[0].name}</small></h4>
+              <div>
+                <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" id="${item.id}">
+              </div>
+            </a>
+          </div>
         </div>
         `
       }
@@ -217,17 +205,18 @@ fetch('http://localhost:3000/games') // Action
     data.forEach((item) => {
       if (item.genres[0].name==='RPG'){
         track5.innerHTML +=
-        `<div class="slick">
-        <div>
-        <a href="/">
-        <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
-        <div>
-        <img src="${item.background_image}" alt="Imagen" >
-        </div>
-        </a>
-        </div>
-        </div>
         `
+        <div class="slick">
+          <div>
+            <a href="../pages/detailGame.html" id="${item.id}" target="_blank">
+              <h4 onclick="detalleJuego(this)" id="${item.id}">${item.name}<small>${item.genres[0].name}</small></h4>
+              <div>
+                <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" id="${item.id}">
+              </div>
+            </a>
+          </div>
+        </div>
+      `
       }
 
     })
@@ -266,7 +255,6 @@ fetch('http://localhost:3000/games') // Action
     .then(response => response.json())
     .then(data => {
       console.log(data)
-      // console.log(Element.id)
       localStorage.setItem('juegoID' ,Element.id);
 })
 }

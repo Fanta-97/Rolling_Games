@@ -38,7 +38,7 @@ let nextAction = (leftPosition,trackWidth,listWidth,slickWidth,track) => {
 let juegoID=localStorage.getItem('juegoID')
 console.log(juegoID)
  
-fetch(`http://localhost:3000/games/${juegoID}`) //tomar id
+fetch(`http://localhost:3000/games/${juegoID}`) //detallejuego
     .then(response => response.json())
     .then(data => {  
     const detallejuegop = document.getElementById('detallejuegop')
@@ -46,7 +46,7 @@ fetch(`http://localhost:3000/games/${juegoID}`) //tomar id
         `<div class="juegoDestacadoTotal">
           <div class="d-flex flex-column">
             <div class="col-lg-12 juegoDestacado d-flex flex-column align-items-center text-center w-100 justify-content-center">
-              <h4 class="h-30 py-lg-4 p-4">${data.name}</h4> 
+              <h2 class="h-30 py-lg-4 p-4">${data.name}</h2> 
             </div>
             <a href="/" class="col-lg-12">
             <img src="${data.background_image}" alt="Imagen" class="imgdestac">
@@ -73,9 +73,7 @@ fetch(`http://localhost:3000/games/${juegoID}`) //Galeria
       track.innerHTML +=
       `
       <div class="slick">
-        <div>
-              <img src="${data.short_screenshots[i].image}" alt="Imagen">
-        </div>
+              <img src="${data.short_screenshots[i].image}" alt="Imagen" class="imgaleria">
       </div>
       `
       }
