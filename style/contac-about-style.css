@@ -25,7 +25,8 @@ body {
 
 .info {
   text-align: center;
-  
+  color: white;
+
 }
 
 .titulo {
@@ -40,6 +41,7 @@ body {
   width: 300px;
   height: 300px;
   margin: 10px;
+  border-radius: 10px;
 }
 
 .nosotros h5 {
