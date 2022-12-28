@@ -12,7 +12,6 @@ App.prototype.processingButton = function(event) {
   const slick = track.querySelectorAll('.slick');
 
   const slickWidth = slick[0].offsetWidth;
-    
   const trackWidth = track.offsetWidth;
   const listWidth = slickList.offsetWidth;
 
@@ -86,6 +85,7 @@ App.prototype.processingButton5 = function(event) {
 }
 
 
+
 let prevAction = (leftPosition,slickWidth,track) => {
   if(leftPosition > 0) {
     track.style.left = `${-1 * (leftPosition - slickWidth)}px`;
@@ -109,10 +109,10 @@ fetch('http://localhost:3000/games') // Action
       `
       <div class="slick">
         <div>
-          <a href="/">
-            <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
+          <a href="../pages/detailGame.html" id="${item.id}" target="_blank">
+            <h4 onclick="detalleJuego(this)" id="${item.id}">${item.name}<small>${item.genres[0].name}</small></h4>
             <div>
-              <img src="${item.background_image}" alt="Imagen" >
+              <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" id="${item.id}">
             </div>
           </a>
         </div>
@@ -130,17 +130,18 @@ fetch('http://localhost:3000/games') // Action
     data.forEach((item) => {
       if (item.genres[0].name==='Shooter'){
         track2.innerHTML +=
-        `<div class="slick">
-        <div>
-        <a href="/">
-        <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
-        <div>
-        <img src="${item.background_image}" alt="Imagen" >
-        </div>
-        </a>
-        </div>
-        </div>
         `
+        <div class="slick">
+          <div>
+            <a href="../pages/detailGame.html" id="${item.id}" target="_blank">
+              <h4 onclick="detalleJuego(this)" id="${item.id}">${item.name}<small>${item.genres[0].name}</small></h4>
+              <div>
+                <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" id="${item.id}">
+              </div>
+            </a>
+          </div>
+        </div>
+      `
       }
 
     })
@@ -154,17 +155,18 @@ fetch('http://localhost:3000/games') // Action
     data.forEach((item) => {
       if (item.genres[0].name==='Adventure'){
         track3.innerHTML +=
-        `<div class="slick">
-        <div>
-        <a href="/">
-        <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
-        <div>
-        <img src="${item.background_image}" alt="Imagen" >
-        </div>
-        </a>
-        </div>
-        </div>
         `
+        <div class="slick">
+          <div>
+            <a href="../pages/detailGame.html" id="${item.id}" target="_blank">
+              <h4 onclick="detalleJuego(this)" id="${item.id}">${item.name}<small>${item.genres[0].name}</small></h4>
+              <div>
+                <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" id="${item.id}">
+              </div>
+            </a>
+          </div>
+        </div>
+      `
       }
 
     })
@@ -178,15 +180,16 @@ fetch('http://localhost:3000/games') // Action
     data.forEach((item) => {
       if (item.genres[0].name==='Sports'){
         track4.innerHTML +=
-        `<div class="slick">
-        <div>
-        <a href="/">
-        <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
-        <div>
-        <img src="${item.background_image}" alt="Imagen" >
-        </div>
-        </a>
-        </div>
+        `
+        <div class="slick">
+          <div>
+            <a href="../pages/detailGame.html" id="${item.id}" target="_blank">
+              <h4 onclick="detalleJuego(this)" id="${item.id}">${item.name}<small>${item.genres[0].name}</small></h4>
+              <div>
+                <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" id="${item.id}">
+              </div>
+            </a>
+          </div>
         </div>
         `
       }
@@ -202,17 +205,18 @@ fetch('http://localhost:3000/games') // Action
     data.forEach((item) => {
       if (item.genres[0].name==='RPG'){
         track5.innerHTML +=
-        `<div class="slick">
-        <div>
-        <a href="/">
-        <h4 >${item.name}<small>${item.genres[0].name}</small></h4>
-        <div>
-        <img src="${item.background_image}" alt="Imagen" >
-        </div>
-        </a>
-        </div>
-        </div>
         `
+        <div class="slick">
+          <div>
+            <a href="../pages/detailGame.html" id="${item.id}" target="_blank">
+              <h4 onclick="detalleJuego(this)" id="${item.id}">${item.name}<small>${item.genres[0].name}</small></h4>
+              <div>
+                <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" id="${item.id}">
+              </div>
+            </a>
+          </div>
+        </div>
+      `
       }
 
     })
@@ -220,22 +224,23 @@ fetch('http://localhost:3000/games') // Action
 
 
  
- fetch('http://localhost:3000/games') //RPG
+ fetch('http://localhost:3000/games') //Juegodestacado
   .then(response => response.json())
   .then(data => {
     const juegodest = document.getElementById('juegodest')
     juegodest.innerHTML = ''
     data.forEach((item) => {
-      console.log(item.destacado)
       if (item.isFavorite === true){
         juegodest.innerHTML +=
         `<div class="juegoDestacadoTotal">
           <div class="d-flex flex-lg-row  flex-column">
-            <a href="/" class="col-lg-6">
-            <img src="${item.background_image}" alt="Imagen" class="imgdestac">
+            <a href="../pages/detailGame.html" class="col-lg-6" target="_blank">
+              <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" class="imgdestac" id="${item.id}">
             </a>
             <div class="col-6-lg juegoDestacado d-flex flex-column align-items-center text-center w-100 justify-content-center">
-              <h4 class="h-30 py-lg-4 p-4">${item.name}</h4> 
+            <a href="../pages/detailGame.html" class="text-light" target="_blank">
+              <h4 class="h-30 py-lg-4 p-4" onclick="detalleJuego(this)" id="${item.id}">${item.name}</h4> 
+            </a>
               <h4 class="h-20 py-lg-2 p-2"><small>Genero:${item.genres[0].name}</small></h4>
               <p class="h-50 py-lg-4 p-4">Increible juego que no te deja levantarte de la silla por más de 5 minutos.A disfrutarlo con un gran descuento!​</p>
             </div>
@@ -246,3 +251,13 @@ fetch('http://localhost:3000/games') // Action
 
     })
  })
+
+  const detalleJuego = (Element) => {
+    fetch(`http://localhost:3000/games/${Element.id}`) //tomar id
+    .then(response => response.json())
+    .then(data => {
+      console.log(data)
+      localStorage.setItem('juegoID' ,Element.id);
+})
+}
+
