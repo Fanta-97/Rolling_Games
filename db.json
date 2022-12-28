@@ -95,6 +95,56 @@
       "rol": "usuario",
       "estado": "1",
       "id": "zNsvFXQ"
+    },
+    {
+      "email": "pameLaMejorMentora@gmail.com",
+      "password": "@^0ZUjto)=tZsPq",
+      "fecha": "1980-10-18",
+      "nombre": "Pame",
+      "apellido": "Aguirre",
+      "rol": "usuario",
+      "estado": "1",
+      "id": "zHgpyuq"
+    },
+    {
+      "email": "siuuuuu",
+      "password": "r'$dEpDW%zUhs2j",
+      "fecha": "1990-10-18",
+      "nombre": "Cristiano",
+      "apellido": "Ronaldo",
+      "rol": "usuario",
+      "estado": "1",
+      "id": "mQLMIH6"
+    },
+    {
+      "email": "soyHernesto@gmail",
+      "password": "^I92(gRT_wK(=&a",
+      "fecha": "1980-10-18",
+      "nombre": "Hernest",
+      "apellido": "Sabato",
+      "rol": "usuario",
+      "estado": "1",
+      "id": "8sERfm5"
+    },
+    {
+      "email": "holaWachin@gmail.com",
+      "password": "YE6CZp3641$4",
+      "fecha": "2005-10-18",
+      "nombre": "HOLA",
+      "apellido": "WACHIN",
+      "rol": "usuario",
+      "estado": "1",
+      "id": "xqSIEpz"
+    },
+    {
+      "email": "nombreApellido@gmail.com",
+      "password": "DLi9hM4h8R#d",
+      "fecha": "1999-10-18",
+      "nombre": "nombre",
+      "apellido": "apellido",
+      "rol": "usuario",
+      "estado": "1",
+      "id": "Pucj0Vk"
     }
   ],
   "games": [
