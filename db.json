@@ -85,12 +85,22 @@
       "rol": "usuario",
       "estado": "1",
       "id": "f34Xo1e"
+    },
+    {
+      "email": "unEmailValido@gmail.com",
+      "password": "&YY^PC'iBz3dq2t",
+      "fecha": "1997-10-18",
+      "nombre": "Joaquin",
+      "apellido": "Navarro",
+      "rol": "usuario",
+      "estado": "1",
+      "id": "zNsvFXQ"
     }
   ],
   "games": [
     {
       "slug": "tomb-raider",
-      "name": "Tomb Raider de la Angelina Jolie xdxdxdxd",
+      "name": "La tomasita",
       "playtime": 11,
       "platforms": [
         {
@@ -14947,7 +14957,7 @@
           }
         }
       ],
-      "isFavorite": false,
+      "isFavorite": true,
       "released": "2016-04-05",
       "tba": false,
       "background_image": "https://media.rawg.io/media/games/a28/a289e23b4d4d84f26ab59125e3be4483.jpg",
@@ -22000,7 +22010,7 @@
           "name": "Adventure"
         }
       ],
-      "isFavorite": "on",
+      "isFavorite": false,
       "name": "Among Us",
       "released": "2022-12-12",
       "description": "POR FAVOR ANDA QUE ME QUIERO IR :(",
@@ -22370,7 +22380,7 @@
           "name": "Adventure"
         }
       ],
-      "isFavorite": "on",
+      "isFavorite": false,
       "name": "Among Us-2",
       "released": "2022-12-22",
       "description": "PORFAPORFAPORFA",
@@ -22383,7 +22393,7 @@
           "name": "Sports"
         }
       ],
-      "isFavorite": "on",
+      "isFavorite": false,
       "name": "Among Us",
       "released": "2022-11-29",
       "description": "PORFA ANDA QUE QUIERO DORMIR",
@@ -22396,7 +22406,7 @@
           "name": "Sports"
         }
       ],
-      "isFavorite": "on",
+      "isFavorite": false,
       "name": "Among Us-123",
       "released": "2022-12-06",
       "description": "adsknhwgññlkwegklñweg",
@@ -22409,7 +22419,7 @@
           "name": "Sports"
         }
       ],
-      "isFavorite": "on",
+      "isFavorite": false,
       "name": "agj{agjñ",
       "released": "2022-12-05",
       "description": "aegljhadgkjlhadskjglhajlsdg",
@@ -22422,7 +22432,7 @@
           "name": "Sports"
         }
       ],
-      "isFavorite": "on",
+      "isFavorite": false,
       "name": "Among Us",
       "released": "2022-12-05",
       "description": "xd",
@@ -22435,7 +22445,7 @@
           "name": "Sports"
         }
       ],
-      "isFavorite": "on",
+      "isFavorite": false,
       "name": "Among Us-1813575198356",
       "released": "2022-11-29",
       "description": "asdasdasd",
@@ -22448,7 +22458,7 @@
           "name": "Action"
         }
       ],
-      "isFavorite": "on",
+      "isFavorite": false,
       "name": "Tetrix",
       "released": "2022-11-28",
       "description": "Es un juego bastante piola",
