@@ -81,6 +81,17 @@ body {
   font-size: 16px;
   color: #9b9b9b;
 }
+.footStyle{
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+}
+.textFoo {
+  color: white;
+}
+.Links-footer a{
+  text-decoration: none;
+}
 
 .form__field:focus {
   padding-bottom: 6px;  
@@ -89,6 +100,7 @@ body {
   border-image: linear-gradient(to right, #11998e, #38ef7d);
   border-image-slice: 1;
 }
+
 
 .form__field:focus ~ .form__label {
     position: absolute;
