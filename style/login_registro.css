@@ -1,0 +1,117 @@
+:root {
+  --color-fondo-1: #121212;
+  --color-fonto-2: #202020;
+  
+}
+
+.container__password {
+  width: 90%;
+}
+
+body {
+  background-color: var(--color-fondo-1);
+  font-family: 'Brutal', sans-serif !;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.card__container {
+  background-color: var(--color-fonto-2);
+  max-width: 470px;
+  border-radius: 10px;
+}
+
+.card__container .card__titulo {
+  font-size: 18px;
+  line-height: 25px;
+  letter-spacing: 2.5px;
+}
+
+.card__container p {
+  color: #fff;
+  opacity: 0.6;
+}
+
+.card__container p a{ 
+  opacity: 1;
+  color: #fff; 
+}
+
+.card__container .row {
+  font-size: 14px;
+}
+
+
+.form__group {
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 90%;
+  margin: auto;
+}
+
+.form__field {
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 15px;
+  color: #fff;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  letter-spacing: 5px;
+}
+
+.form__field::placeholder { color: transparent; }
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 20px;
+}
+
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 16px;
+  color: #9b9b9b;
+}
+.footStyle{
+  background-color: black;
+  position: fixed;
+  bottom: 0;
+}
+.textFoo {
+  color: white;
+}
+.Links-footer a{
+  text-decoration: none;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;  
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #11998e, #38ef7d);
+  border-image-slice: 1;
+}
+
+
+.form__field:focus ~ .form__label {
+    position: absolute;
+    top: 0;
+    display: block;
+    transition: 0.2s;
+    font-size: 1rem;
+    color: #11998e;
+    font-weight:700;    
+  }
+/* reset input */
+.form__field:required, .form__field:invalid{
+  box-shadow:none;
+}
