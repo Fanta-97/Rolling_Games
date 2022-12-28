@@ -234,11 +234,13 @@ fetch('http://localhost:3000/games') // Action
         juegodest.innerHTML +=
         `<div class="juegoDestacadoTotal">
           <div class="d-flex flex-lg-row  flex-column">
-            <a href="/" class="col-lg-6">
-            <img src="${item.background_image}" alt="Imagen" class="imgdestac">
+            <a href="../pages/detailGame.html" class="col-lg-6" target="_blank">
+              <img onclick="detalleJuego(this)" src="${item.background_image}" alt="Imagen" class="imgdestac" id="${item.id}">
             </a>
             <div class="col-6-lg juegoDestacado d-flex flex-column align-items-center text-center w-100 justify-content-center">
-              <h4 class="h-30 py-lg-4 p-4">${item.name}</h4> 
+            <a href="../pages/detailGame.html" class="text-light" target="_blank">
+              <h4 class="h-30 py-lg-4 p-4" onclick="detalleJuego(this)" id="${item.id}">${item.name}</h4> 
+            </a>
               <h4 class="h-20 py-lg-2 p-2"><small>Genero:${item.genres[0].name}</small></h4>
               <p class="h-50 py-lg-4 p-4">Increible juego que no te deja levantarte de la silla por más de 5 minutos.A disfrutarlo con un gran descuento!​</p>
             </div>
